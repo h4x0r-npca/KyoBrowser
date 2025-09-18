@@ -22,6 +22,10 @@ if os.name == "nt":
 HOME_URL = "https://www.google.com"
 BOOKMARK_FILE = "bookmarks.json"
 
+def resource_path(name: str) -> str:
+    # PyInstaller --onefile 대응
+    base = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base, name)
 
 # -------------------- Request Interceptor --------------------
 class MyInterceptor(QWebEngineUrlRequestInterceptor):
@@ -182,6 +186,8 @@ class Browser(QMainWindow):
         self.setWindowTitle("Kyo's Browser")
         self.setWindowIcon(QIcon("kyobrowser.ico")) # 아이콘 추가
         self.resize(1200, 800)
+        # 윈도우 아이콘 설정 (exe 안 리소스 경로에서 불러옴)
+        self.setWindowIcon(QIcon(resource_path("kyobrowser.ico")))
 
         # --- 프로필 (부모 없이 생성: 종료 경고 방지) ---
         storage_path = os.path.join(os.getcwd(), "browser_data")
@@ -462,7 +468,7 @@ class Browser(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("kyobrowser.ico"))  # 아이콘 추가
+    app.setWindowIcon(QIcon(resource_path("kyobrowser.ico")))
     browser = Browser()
     browser.show()
     sys.exit(app.exec())

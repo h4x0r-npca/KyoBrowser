@@ -19,3 +19,8 @@ Thumbs.db
 # App data
 browser_data/
 bookmarks.json
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
