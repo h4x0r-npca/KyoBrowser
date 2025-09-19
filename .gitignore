@@ -20,7 +20,8 @@ Thumbs.db
 browser_data/
 bookmarks.json
 
-# PyInstaller build artifacts
+# Build artifacts
 build/
 dist/
+Output/
 *.spec
