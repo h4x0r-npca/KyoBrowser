@@ -1,4 +1,4 @@
-# Kyo Browser 1.0
+# Kyo Browser 1.1
 
 Lightweight custom browser built with **PySide6 (QtWebEngine)**.
 
@@ -6,6 +6,15 @@ Lightweight custom browser built with **PySide6 (QtWebEngine)**.
 - Tabs, favicon
 - Download Manager
 - Bookmark Manager (separate window, edit/delete)
+- Bookmark toolbar
+- Custom start page URL
+- Bookmark toolbar context menu for edit/delete
+- Session restore and recently closed tabs
+- Visit history
+- Dark/light/system theme
+- Zoom controls
+- Cache/cookie cleanup
+- Settings dialog
 - Persistent cookies/storage
 - Language interceptor
 - About dialog
@@ -13,4 +22,10 @@ Lightweight custom browser built with **PySide6 (QtWebEngine)**.
 ## Run
 ```bash
 pip install -r requirements.txt
-python chromium_browser.py
+python kyobrowser.py
+```
+
+## Build
+```bash
+pyinstaller kyobrowser.spec
+```
